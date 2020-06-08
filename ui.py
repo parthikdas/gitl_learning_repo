@@ -1,1 +1,0 @@
-print ("hello this is the python command")
