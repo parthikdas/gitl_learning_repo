@@ -73,7 +73,13 @@ public class MyLinkedList<E> {
 	
 	void remove(int position)  //removed the value in specified position//
 	{
-		Node<E> temp=head;int c=0;
+		Node<E> temp=head;
+		if(position == 0)  //this is a edge case as here the head is to be changed//
+			{
+			head=temp.next;
+			return;
+			}
+		int c=0;
 		while(temp!=null) {if(c+1==position) {break;}temp=temp.next;c++;}
 		Node<E> temp1=temp.next.next;
 		temp.next=temp1;
