@@ -16,6 +16,7 @@ public class MyLinkedList<E> {
 	 * 10.contains(data)  -  checks whether that data is present in the list or not.
 	 */
 	
+		
 	Node<E> head;
 	void add(E data)  //Adding a new data at defined position//
 	{
@@ -37,6 +38,12 @@ public class MyLinkedList<E> {
 	{
 		Node<E> toAdd =new Node<E>(data);
 		
+		if(isEmpty())
+		{
+			head=toAdd;
+			return;
+		}
+		
 		if(position==0)  //if it is to be inserted at first//
 		{
 			toAdd.next=head;
@@ -56,8 +63,15 @@ public class MyLinkedList<E> {
 	}
 	
 	
+	
+	
 	E get(int position)  //get the value which is at that index//
 	{
+		if(isEmpty()||position < 0)
+		{
+			return null;
+		}
+		
 		Node<E> temp=head;int c=0;
 		while(temp!=null) {if(c==position) {break;}temp=temp.next;c++;}
 		
@@ -66,6 +80,11 @@ public class MyLinkedList<E> {
 	
 	void set(E data,int position)  //for updating the data in list in specified position//
 	{
+		if(isEmpty()||position < 0)
+		{
+			return;
+		}
+		
 		Node<E> temp=head;int c=0;
 		while(temp!=null) {if(c==position) {break;}temp=temp.next;c++;}
 		temp.data=data;
@@ -73,13 +92,18 @@ public class MyLinkedList<E> {
 	
 	void remove(int position)  //removed the value in specified position//
 	{
+		if(isEmpty()||position < 0)
+		{
+			return;
+		}
+		
 		Node<E> temp=head;
 		if(position == 0)  //this is a edge case as here the head is to be changed//
 			{
 			head=temp.next;
 			return;
 			}
-		int c=0;
+		int c=0;	
 		while(temp!=null) {if(c+1==position) {break;}temp=temp.next;c++;}
 		Node<E> temp1=temp.next.next;
 		temp.next=temp1;
@@ -87,6 +111,11 @@ public class MyLinkedList<E> {
 	}
 	
 	void print() {  //Printing the list//
+		if(isEmpty())
+		{
+			return;
+		}
+		
 		Node<E> temp=head;
 		while(temp!=null) {System.out.println(temp.data+" ");
 		temp = temp.next;
@@ -99,6 +128,10 @@ public class MyLinkedList<E> {
 	
 	int size()  //for getting the size of the list//
 	{
+		if(isEmpty())
+		{
+			return -1;
+		}
 		int c=0;Node<E> temp=head;
 		while(temp!=null) {temp=temp.next;c++;}
 		return c;
@@ -111,6 +144,10 @@ public class MyLinkedList<E> {
 	
 	boolean contains(E data)  //checks whether that data is present in the list or not//
 	{
+		if(isEmpty())
+		{
+			return false;
+		}
 		Node<E> temp=head;
 		while(temp!=null) {if(temp.data==data) {return true;} temp=temp.next;}
 		return false;
