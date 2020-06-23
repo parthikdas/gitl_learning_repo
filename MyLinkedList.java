@@ -14,6 +14,7 @@ public class MyLinkedList<E> {
 	 * 8.size()  -  for getting the size of the list.
 	 * 9.clear()  -  clears the whole list
 	 * 10.contains(data)  -  checks whether that data is present in the list or not.
+	 * 11.reverse()  -  reverses the list.
 	 */
 	
 		
@@ -151,6 +152,20 @@ public class MyLinkedList<E> {
 		Node<E> temp=head;
 		while(temp!=null) {if(temp.data==data) {return true;} temp=temp.next;}
 		return false;
+	}
+
+	void reverse()   //reverses the list//
+	{
+		Node<E> prev = null; 
+        Node<E> current = head; 
+        Node<E> next = null; 
+        while (current != null) { 
+            next = current.next; 
+            current.next = prev; 
+            prev = current; 
+            current = next; 
+        } 
+        head = prev; 
 	}
 	
 	
