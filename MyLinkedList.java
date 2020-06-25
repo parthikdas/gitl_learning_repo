@@ -15,6 +15,7 @@ public class MyLinkedList<E> {
 	 * 9.clear()  -  clears the whole list
 	 * 10.contains(data)  -  checks whether that data is present in the list or not.
 	 * 11.reverse()  -  reverses the list.
+	 * 12.indexOf(data)  -  returns the index of the element in the list.
 	 */
 	
 		
@@ -35,7 +36,7 @@ public class MyLinkedList<E> {
 		temp.next=toAdd;
 	}
 	
-	void update(E data,int position)  //if you want to add in between the list//
+	void add(E data,int position)  //if you want to add in between the list//
 	{
 		Node<E> toAdd =new Node<E>(data);
 		
@@ -63,7 +64,19 @@ public class MyLinkedList<E> {
 		
 	}
 	
-	
+	int indexOf(E data)  //returns the index of the element in the list//
+	{
+		if(isEmpty())
+		{
+			return -1;
+		}
+		Node<E> temp = head;int c=0;
+		while(temp!=null)
+		{
+			if(temp.data==data) {return c;} c++; temp=temp.next;
+		}
+		return -1;
+	}
 	
 	
 	E get(int position)  //get the value which is at that index//
