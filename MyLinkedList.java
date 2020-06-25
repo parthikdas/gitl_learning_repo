@@ -5,7 +5,7 @@ public class MyLinkedList<E> {
 	
 	/* Here are the details of functions which is available in MyLinkedList class
 	 * 1.add(data)  - Adding a new data at defined position.
-	 * 2.update(data,position)  -  If you want to add in between the list.
+	 * 2.add(data,position)  -  If you want to add in between the list.
 	 * 3.get(position)  -  get the value which is at that index.
 	 * 4.set(data,position)  -  for updating the data in list in specified position.
 	 * 5.remove(position)  -  for updating the data in list in specified position.
